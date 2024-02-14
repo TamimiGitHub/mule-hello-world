@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>helloworld</artifactId>
+	<artifactId>helloworld-Sandbox</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
-	<name>helloworld</name>
+	<name>helloworld-Sandbox</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,7 +30,19 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<classifier>---- select project type ----</classifier>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<applicationName>${app.name}</applicationName>
+						<environment>${env}</environment>
+						<workerType>MICRO</workerType>
+						<region>us-east-2</region>
+						<workers>1</workers>
+						<objectStoreV2>true</objectStoreV2>
+					</cloudHubDeployment>
+					<classifier>---- Hello world ----</classifier>
 				</configuration>
 			</plugin>
 		</plugins>
